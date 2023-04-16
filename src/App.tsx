@@ -2,6 +2,7 @@ import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
 import { Reset } from "styled-reset";
 import Router from "./Router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -12,8 +13,7 @@ const GlobalStyle = createGlobalStyle`
 
 body{
   font-family: 'Source Sans Pro', sans-serif;
-  margin: 0;
-  padding: 0;
+  color: white;
 
 }
 
@@ -28,14 +28,18 @@ li{
 
 `;
 
+const client = new QueryClient();
+
 function App() {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Reset />
-        <Router />
-      </ThemeProvider>
+      <QueryClientProvider client={client}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Reset />
+          <Router />
+        </ThemeProvider>
+      </QueryClientProvider>
     </>
   );
 }

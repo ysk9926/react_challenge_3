@@ -9,13 +9,13 @@ function Router() {
       <BrowserRouter basename="/react_challenge3/">
         <Nav />
         <Switch>
-          <Route path="/Search">
+          <Route path={["/search", "/search/:clickId"]}>
             <Search />
           </Route>
-          <Route path="/Series">
+          <Route path={["/series", "/series/:seriesId"]}>
             <Series />
           </Route>
-          <Route path="/">
+          <Route path={["/", "/movie/:movieId"]}>
             <Home />
           </Route>
         </Switch>

@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
 body{
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
+  background-color: rgba(20, 20, 20);
 
 }
 
